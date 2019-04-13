@@ -4,5 +4,18 @@ import { shallow } from 'enzyme';
 import ProjectTable from './ProjectTable';
 
 describe('<ProjectTable />', () => {
-  // TODO Add tests
-});
+  let wrapper;
+
+  beforeEach(() => {
+    const projects = [{}, {}];
+    wrapper = shallow(<ProjectTable projects={projects} />);
+  });
+
+  it('should instantiate the Project Table Component', () => {
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('should render a row for each project', () => {
+    expect(wrapper.find(ProjectRow)).toHaveLength(2);
+   });
+  });
