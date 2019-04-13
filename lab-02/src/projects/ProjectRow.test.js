@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import ProjectRow from './ProjectRow';
-import { isMainThread } from 'worker_threads';
+//import { isMainThread } from 'worker_threads';
 
 describe('<ProjectRow />', () => {
   //setting up components that we will be testing
@@ -26,5 +26,10 @@ it('should render values into expected cells', () =>{
   expect(wrapper.find('td').toHaveLength(2));
   expect(wrapper.find('td').at(0).text()).toEqual('NAME');
   expect(wrapper.find('td').at(1).text()).toEqual('DESCRIPTION');
+  });
+
+  //extra credit--JEST snapshot testing
+  it('should render to match the snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });
